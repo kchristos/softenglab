@@ -24,7 +24,7 @@ import javax.swing.JSeparator;
 
 public class MainFrame {
 
-	private JFrame frmTruckTackingApp;
+	private JFrame frmTruckTrackingApp;
 	private JTable table;
 	private JTextField txfSearch;
 	private JTextField txfAddPlate;
@@ -53,7 +53,7 @@ public class MainFrame {
 			public void run() {
 				try {
 					MainFrame window = new MainFrame();
-					window.frmTruckTackingApp.setVisible(true);
+					window.frmTruckTrackingApp.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -72,15 +72,15 @@ public class MainFrame {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frmTruckTackingApp = new JFrame();
-		frmTruckTackingApp.setTitle("Truck tacking app");
-		frmTruckTackingApp.setBounds(100, 100, 1280, 720);
-		frmTruckTackingApp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmTruckTackingApp.getContentPane().setLayout(new MigLayout("", "[][30px][grow]", "[][][grow]"));
+		frmTruckTrackingApp = new JFrame();
+		frmTruckTrackingApp.setTitle("Truck tacking app");
+		frmTruckTrackingApp.setBounds(100, 100, 1280, 720);
+		frmTruckTrackingApp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmTruckTrackingApp.getContentPane().setLayout(new MigLayout("", "[][30px][grow]", "[][][grow]"));
 		
 		
 		JButton btnLoad = new JButton("Load table");
-		frmTruckTackingApp.getContentPane().add(btnLoad, "cell 2 0,alignx center");
+		frmTruckTrackingApp.getContentPane().add(btnLoad, "cell 2 0,alignx center");
 		btnLoad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Database.fillJTable(table, null, null);		// the function will be used without WHERE keyword
@@ -88,7 +88,7 @@ public class MainFrame {
 		});
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		frmTruckTackingApp.getContentPane().add(tabbedPane, "cell 0 2,width 30%,height 70%,aligny top");
+		frmTruckTrackingApp.getContentPane().add(tabbedPane, "cell 0 2,width 30%,height 70%,aligny top");
 		
 		JPanel panelSearch = new JPanel();
 		tabbedPane.addTab("Search", null, panelSearch, null);
@@ -182,7 +182,7 @@ public class MainFrame {
 		panelAdd.add(btnSave, "cell 2 12,alignx center");
 		
 		JScrollPane scrollPane = new JScrollPane();
-		frmTruckTackingApp.getContentPane().add(scrollPane, "cell 2 2,growx,height 90%,aligny top");
+		frmTruckTrackingApp.getContentPane().add(scrollPane, "cell 2 2,growx,height 90%,aligny top");
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
@@ -363,7 +363,7 @@ public class MainFrame {
 	}
 	
 	public void setVisible(boolean b) {
-		frmTruckTackingApp.setVisible(true);
+		frmTruckTrackingApp.setVisible(true);
 	}
 	
 	public void clearTextfields(JTextField[] fields) {
