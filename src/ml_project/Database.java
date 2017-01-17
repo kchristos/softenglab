@@ -72,7 +72,7 @@ public class Database {
 			boolean matchFound = (numberOfRows(rs) == 1) ? true : false;	
 			return matchFound;
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, e);
+			// JOptionPane.showMessageDialog(null, e);
 			return false;
 		} finally {
 		    DbUtils.closeQuietly(rs);
@@ -142,7 +142,7 @@ public class Database {
 			pstm.execute();
 			return true;
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, e);
+			// JOptionPane.showMessageDialog(null, e);
 			return false;
 		} finally {
 		    DbUtils.closeQuietly(rs);
@@ -165,7 +165,7 @@ public class Database {
 			pstm.execute();
 			return true;
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, e);
+			// JOptionPane.showMessageDialog(null, e);
 			return false;
 		} finally {
 		    DbUtils.closeQuietly(rs);
@@ -183,7 +183,7 @@ public class Database {
 			pstm.execute();
 			return true;
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, e);
+			// JOptionPane.showMessageDialog(null, e);
 			return false;
 		} finally {
 		    DbUtils.closeQuietly(rs);
@@ -205,7 +205,7 @@ public class Database {
 				plate.setText(rs.getString(2));
 				cargo.setText(rs.getString(3));
 				name.setText(rs.getString(4));
-				surname.setText(rs.getString(4));
+				surname.setText(rs.getString(5));
 				location.setText(rs.getString(6));
 			}
 		} catch (Exception e) {

@@ -18,7 +18,7 @@ public class Tests {
 			ResultSet rs = pstm.executeQuery();
 			return rs;
 		} catch (Exception e) {
-			System.out.println(e);
+			// System.out.println(e);
 			return null;
 		}
 	}
@@ -27,7 +27,7 @@ public class Tests {
 		try {
 			rs.close();
 		} catch (Exception e) {
-			System.out.println(e);
+			// System.out.println(e);
 		}
 	}
 	
@@ -95,7 +95,7 @@ public class Tests {
 			addSuccessful = Database.addEntry("testadd", "testadd", "testadd", "testadd", "testadd");
 			assertEquals("FAILURE - the ID of the new entry should be bigger", false, addSuccessful);
 		} catch (Exception e) {
-			System.out.println(e);
+			// System.out.println(e);
 			assertEquals("FAILURE - the ID of the new entry should be bigger", true, false);
 		}
 	}
@@ -126,7 +126,7 @@ public class Tests {
 			closeDbResourses(rs2);
 			assertEquals("FAILURE - the name of the entry did not update", false, updateSuccessful);
 		} catch (Exception e) {
-			System.out.println(e);
+			// System.out.println(e);
 			assertEquals("FAILURE - the name of the entry did not update", true, false);
 		}
 	}
@@ -154,7 +154,7 @@ public class Tests {
 			closeDbResourses(rs2);
 			assertEquals("FAILURE - the entry was not deleted", false, deleteSuccessful);
 		} catch (Exception e) {
-			System.out.println(e);
+			// System.out.println(e);
 			assertEquals("FAILURE - the entry was not deleted", false, true);
 		}
 	}
