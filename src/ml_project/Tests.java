@@ -80,12 +80,12 @@ public class Tests {
 		Database.password = DBPASSWORD;
 		try {
 			boolean addSuccessful = false;
+		
+			// test correct entry
+			addSuccessful = Database.addEntry("testadd", "testadd", "testadd", "testadd", "testadd");
 			ResultSet rs1 = simpleQuery("SELECT * FROM test_table1 ORDER BY id DESC LIMIT 0, 1");
 			rs1.next();
 			int entryID = rs1.getInt(1);
-			
-			// test correct entry
-			addSuccessful = Database.addEntry("testadd", "testadd", "testadd", "testadd", "testadd");
 			closeDbResourses(rs1);
 			assertEquals("FAILURE - the ID of the new entry should be bigger", true, addSuccessful);
 			Database.deleteEntry(Integer.toString(entryID));		// undo the add
@@ -116,6 +116,7 @@ public class Tests {
 			updateSuccessful = Database.updateEntry(Integer.toString(id), "testupdate", "testupdate", "testupdate", "testupdate", "testupdate");
 			closeDbResourses(rs1);
 			assertEquals("FAILURE - the name of the entry did not update", true, updateSuccessful);
+			Database.deleteEntry(Integer.toString(id));		// undo the add
 			
 			// test incorrect update
 			Database.password = "12345";		// give the wrong password
@@ -124,8 +125,6 @@ public class Tests {
 			updateSuccessful = Database.updateEntry(Integer.toString(id), "testupdate", "testupdate", "testupdate", "testupdate", "testupdate");
 			closeDbResourses(rs2);
 			assertEquals("FAILURE - the name of the entry did not update", false, updateSuccessful);
-			
-			Database.deleteEntry(Integer.toString(id));		// undo the add
 		} catch (Exception e) {
 			System.out.println(e);
 			assertEquals("FAILURE - the name of the entry did not update", true, false);

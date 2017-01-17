@@ -78,7 +78,7 @@ public class MainFrame {
 		frmTruckTackingApp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTruckTackingApp.getContentPane().setLayout(new MigLayout("", "[][30px][grow]", "[][][grow]"));
 		
-		/* load btn on top of the table, was used for debugging 
+		
 		JButton btnLoad = new JButton("Load table");
 		frmTruckTackingApp.getContentPane().add(btnLoad, "cell 2 0,alignx center");
 		btnLoad.addActionListener(new ActionListener() {
@@ -86,7 +86,7 @@ public class MainFrame {
 				Database.fillJTable(table, null, null);		// the function will be used without WHERE keyword
 			}
 		});
-		*/
+		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		frmTruckTackingApp.getContentPane().add(tabbedPane, "cell 0 2,width 30%,height 70%,aligny top");
 		
@@ -173,6 +173,9 @@ public class MainFrame {
 				} else {
 					Database.addEntry(plate, cargo, name, surname, location);
 					Database.fillJTable(table, null, null);			// show updated table
+					JTextField[] fields = {txfAddPlate, txfAddCargo, txfAddName, txfAddSurname, txfAddLocation}; 
+					clearTextfields(fields);
+					
 				}
 			}
 		});
@@ -273,6 +276,8 @@ public class MainFrame {
 					String location = txfUpdateLocation.getText();
 					Database.updateEntry(inputID, plate, cargo, name, surname, location);
 					Database.fillJTable(table, null, null);			// show updated table
+					JTextField[] fields = {txfUpdateID, txfUpdatePlate, txfUpdateCargo, txfUpdateName, txfUpdateSurname, txfUpdateLocation}; 
+					clearTextfields(fields);
 				}
 				
 			}
@@ -348,6 +353,8 @@ public class MainFrame {
 					String inputID = txfDeleteID.getText();
 					Database.deleteEntry(inputID);
 					Database.fillJTable(table, null, null);			// show updated table
+					JTextField[] fields = {txfDeleteID, txfDeletePlate, txfDeleteCargo, txfDeleteName, txfDeleteSurname, txfDeleteLocation}; 
+					clearTextfields(fields);
 				}
 			}
 		});
@@ -357,6 +364,12 @@ public class MainFrame {
 	
 	public void setVisible(boolean b) {
 		frmTruckTackingApp.setVisible(true);
+	}
+	
+	public void clearTextfields(JTextField[] fields) {
+		for (JTextField txf : fields) {
+			txf.setText("");
+		}
 	}
 
 }

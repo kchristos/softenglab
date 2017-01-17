@@ -8,7 +8,7 @@ public class AppLauncher {
 	private final static String DBPASSWORD = "mlproject";
 	
 	
-	public static void main() {
+	public static void main(String[] args) {
 		Database.url      = DBURL;
 		Database.username = DBUSERNAME;
 		Database.password = DBPASSWORD;
